@@ -131,3 +131,82 @@ function renderWether(res) {
 // temp: 29.773000000000003
 // temp_max: 29.816000000000003
 // temp_min: 29.716
+
+function renderWether(res) {
+	document.querySelector('.weather').innerHTML = `
+	<table class="unstyledTable">
+<thead>
+<tr>
+<th>${res.name}</th>
+<th><div class="i"></div></th>
+</tr>
+</thead>
+<tbody>
+<td>Temp</td><td>${res.temp}°</td></tr>
+<tr>
+<td>Feels like</td><td>${res.feels_like}°</td></tr>
+<tr>
+<td>Max temp</td><td>${res.temp_max}°</td></tr>
+<tr>
+<td>Min temp</td><td>${res.temp_min}°</td></tr>
+<tr>
+<td>Humidity</td><td>${res.humidity}%</td></tr>
+<tr>
+<td>Pressure</td><td>${res.pressure}</td></tr>
+</tbody>
+</tr>
+</table>
+	`
+
+	translateIcon(res.icon)
+}
+
+function translateIcon(icon) {
+	const i = document.querySelector('.i')
+	const firstTwoChars = icon.slice(0, 2)
+	const lastChar = icon.slice(2)
+	switch (firstTwoChars) {
+		case '01':
+			if (lastChar === 'd') {
+				i.classList.add('far', 'fa-sun')
+			} else {
+				i.classList.add('far', 'fa-moon')
+			}
+			break
+		case '02':
+			if (lastChar === 'd') {
+				i.classList.add('fas', 'fa-cloud-sun')
+			} else {
+				i.classList.add('fas', 'fa-cloud-moon')
+			}
+			break
+		case '03':
+			i.classList.add('fas', 'fa-cloud')
+			break
+		case '04':
+			i.classList.add('fas', 'fa-cloud-meatball')
+			break
+		case '09':
+			i.classList.add('fas', 'fa-cloud-rain')
+			break
+		case '10':
+			if (lastChar === 'd') {
+				i.classList.add('fas', 'fa-cloud-sun-rain')
+			} else {
+				i.classList.add('fas', 'fa-cloud-moon-rain')
+			}
+			break
+		case '11':
+			i.classList.add('fas', 'fa-poo-storm')
+			break
+		case '13':
+			i.classList.add('far', 'fa-snowflake')
+			break
+		case '50':
+			i.classList.add('fas', 'fa-smog')
+			break
+		default:
+			i.classList.add('far', 'fa-question-circle')
+	}
+	return i
+}
