@@ -1,4 +1,5 @@
 @import './componenets/header.css';
+@import './componenets/main.css';
 
 body {
     background-color: #212b36;
@@ -8,13 +9,8 @@ body {
 
 * {
     box-sizing: border-box;
-}
-
-.map-actions {
-    display: flex;
-    width: 40%;
-    justify-content: space-between;
-    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .layout {
@@ -22,64 +18,3 @@ body {
     margin: auto;
 }
 
-main {
-    display: grid;
-    height: 600px;
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 100px 250px 250px;
-
-    grid-column-gap: 2%;
-}
-
-#map {
-    grid-row: span 2;
-    margin-top: 20px;
-}
-
-.locations {
-    background-color: blue;
-}
-
-.curr-loc {
-    background-color: red;
-    grid-column: span 2;
-}
-
-.weather {
-    background-color: pink;
-}
-
-.location {
-    box-shadow: 0 6px 6px black;
-    margin-bottom: 5px;
-}
-
-.loc-title {
-    color: #212b36;
-    text-align: center;
-    background-color: rgb(206, 198, 198);
-
-}
-
-.loc-details {
-    text-align: center;
-    color: #212b36;
-    background-color: rgb(206, 198, 198);
-}
-
-.buttons {
-    display: flex;
-    gap: 1px;
-}
-
-
-.go-btn {
-    flex-grow: 1;
-    height: 1.5rem;    
-}
-.delete-btn{
-    background-color: rgb(226, 23, 23);
-}
-.go-btn{
-    background-color: rgb(92, 177, 66);
-}

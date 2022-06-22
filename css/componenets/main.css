@@ -1,0 +1,73 @@
+#map {
+    grid-row: span 2;
+    margin-top: 20px;
+    border-radius: 30px;
+}
+
+main {
+    display: grid;
+    height: 600px;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 100px 250px 250px;
+
+    grid-column-gap: 2%;
+}
+
+.locations-header {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    padding: 0 .5rem;
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+}
+
+.locations {
+    margin: 2px;
+    border-radius: 10px;
+    padding: 10px 0;
+    box-shadow: -12px 4px 36px 1px rgba(255, 255, 255, 0.66);
+    overflow: auto;
+}
+
+.curr-loc {
+    background-color: rgba(240, 248, 255, 0.247);
+    grid-column: span 2;
+    font-size: 2rem;
+    padding: 1.5rem;
+    margin: 10px;
+
+    display: flex;
+    align-self: center;
+}
+
+.weather {
+    background-color: pink;
+}
+
+.location {
+    margin: 2px;
+     border-radius: 5px;
+    text-align: center;
+    margin-bottom: 5px;
+    color: #212b36;
+    background-color: rgba(255, 255, 255, 0.66);
+
+}
+
+.buttons {
+    display: flex;
+    gap: 1px;
+   
+}
+
+
+.go-btn {
+    flex-grow: 1;
+    height: 1.5rem;
+    
+}
+
+.delete-btn {
+    background-color: rgb(226, 23, 23);
+}

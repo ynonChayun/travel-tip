@@ -6,6 +6,7 @@ window.onAddMarker = onAddMarker
 window.onPanTo = onPanTo
 window.onGetUserPos = onGetUserPos
 window.onCopyLoc = onCopyLoc
+window.onDeleteBtn = onDeleteBtn
 
 function onInit() {
 	mapService
@@ -26,13 +27,13 @@ function getPosition() {
 }
 
 function onAddMarker(ev) {
-	if (!ev) mapService.addMarker({lat: 32.0749831, lng: 34.9120554})
+	if (!ev) mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 })
 	const title = prompt('title') // switch with modal
 	console.log('ev:', ev)
 	var lat = ev.latLng.lat()
 	var lng = ev.latLng.lng()
-	locService.saveLocation({lat, lng}, title)
-	mapService.addMarker({lat, lng}, title)
+	locService.saveLocation({ lat, lng }, title)
+	mapService.addMarker({ lat, lng }, title)
 }
 
 function onGetUserPos() {
@@ -58,7 +59,21 @@ function onCopyLoc() {
 	navigator.clipboard.writeText(urlWithLoc);
 }
 
-// function renderLocs() {
-// 	const locs = getLocs()
-// 	const strHTML = getLocs.map(() =>)
-// }
+function renderLocs() {
+	const locs = locService.getSetLocs()
+	const strHeaderHTML = `<h1 class='locations-header' >My locations</h1>`
+	const strsHTML = locs.map(loc => `<div class="location">
+	<div class="loc-title">${loc.name}</div>
+	<div class="loc-details">📍 ${loc.lat}, ${loc.lng} 🕛 2.33</div>
+	<div class="buttons">
+		<button class="delete-btn" onclick="onDeleteBtn('${loc.id}')">🗑️</button>
+		<button class="go-btn" onclick="onGoBtn('${loc.id}')">GO</button>
+	</div>
+</div>`)
+	document.querySelector('.locations').innerHTML = strHeaderHTML + strsHTML.join('')
+}
+
+function onDeleteBtn(id) {
+	locService.deleteLoc(id)
+	renderLocs()
+}
