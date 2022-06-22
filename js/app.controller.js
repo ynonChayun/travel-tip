@@ -26,9 +26,12 @@ function getPosition() {
 
 function onAddMarker(ev) {
 	if (!ev) mapService.addMarker({lat: 32.0749831, lng: 34.9120554})
+	const title = prompt('title') // switch with modal
+	console.log('ev:', ev)
 	var lat = ev.latLng.lat()
 	var lng = ev.latLng.lng()
-	mapService.addMarker({lat: lat, lng: lng})
+	locService.saveLocation({lat, lng}, title)
+	mapService.addMarker({lat, lng}, title)
 }
 
 function onGetLocs() {

@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>TravelTip</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelTip</title>
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
 
-    <link rel="stylesheet" href="css/styles.css">
-</head>
+	<body>
+		<header class="layout">
+			<h1 class="logo">TravelTip</h1>
+			<div class="map-actions">
+				<div class="search-loc">
+					<input type="text" />
+					<button>GO</button>
+				</div>
+				<button>My location</button>
+				<button>Copy Location</button>
+			</div>
+		</header>
 
-<body>
-    <header class="layout">
-        <h1 class="logo">TravelTip</h1>
-        <div class="map-actions">
-            <div class="search-loc">
-                <input type="text">
-                <button>GO</button>
-            </div>
-            <button>My location</button>
-            <button>Copy Location</button>
-        </div>
-    </header>
+		<main class="layout">
+			<p class="curr-loc">You are at: <span class="user-pos"></span></p>
+			<p class="locations">Locations: <span class="locs"></span></p>
+			<div id="map" style="width: 98%; height: 480px"></div>
+			<div class="weather">weather</div>
+		</main>
+		<button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
+		<button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button>
+		<button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
+		<button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
 
-    <main class="layout">
-        <p class="curr-loc">You are at: <span class="user-pos"></span></p>
-        <p class="locations">Locations: <span class="locs"></span></p>
-        <div onclick="onAddMarker(event)" id="map" style="width: 98%; height: 480px;"></div>
-        <div class="weather">weather</div>
-    </main>
-    <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
-    <button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button>
-    <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
-    <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
-
-
-    <script type="module" src="js/app.controller.js"></script>
-</body>
-
+		<script type="module" src="js/app.controller.js"></script>
+	</body>
 </html>
