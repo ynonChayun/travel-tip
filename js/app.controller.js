@@ -1,5 +1,5 @@
-import { locService } from './services/loc.service.js'
-import { mapService } from './services/map.service.js'
+import {locService} from './services/loc.service.js'
+import {mapService} from './services/map.service.js'
 
 window.onload = onInit
 window.onAddMarker = onAddMarker
@@ -14,12 +14,11 @@ function onInit() {
 			console.log('Map is ready')
 		})
 		.catch(() => console.log('Error: cannot init map'))
-	renderLocs()
+	// renderLocs()
 }
 
 // This function provides a Promise API to the callback-based-api of getCurrentPosition
 function getPosition() {
-	console.log('Getting Pos')
 	return new Promise((resolve, reject) => {
 		navigator.geolocation.getCurrentPosition(resolve, reject)
 	})
@@ -38,7 +37,8 @@ function onAddMarker(ev) {
 function onGetUserPos() {
 	getPosition()
 		.then((pos) => {
-			console.log('User position is:', pos.coords)
+			console.log('pos:', pos)
+			mapService.showLocation(pos)
 			document.querySelector(
 				'.user-pos'
 			).innerText = `Latitude: ${pos.coords.latitude} - Longitude: ${pos.coords.longitude}`
@@ -55,7 +55,7 @@ function onPanTo() {
 
 function onCopyLoc() {
 	const urlWithLoc = `https://ynonchayun.github.io/travel-tip/index.html?lat=${3.14}&lng=${1.13}`
-	navigator.clipboard.writeText(urlWithLoc);
+	navigator.clipboard.writeText(urlWithLoc)
 }
 
 // function renderLocs() {

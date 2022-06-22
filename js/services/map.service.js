@@ -2,20 +2,19 @@ export const mapService = {
 	initMap,
 	addMarker,
 	panTo,
+	getSetMap,
+	showLocation,
 }
 import {storageService} from './storage.service.js'
 
 var gMap
 
 function initMap(lat = 32.0749831, lng = 34.9120554) {
-	console.log('InitMap2')
 	return _connectGoogleApi().then(() => {
-		console.log('google available')
 		gMap = new google.maps.Map(document.querySelector('#map'), {
 			center: {lat, lng},
 			zoom: 15,
 		})
-		console.log('Map!', gMap)
 		gMap.addListener('click', (e) => {
 			onAddMarker(e)
 		})
@@ -50,3 +49,25 @@ function _connectGoogleApi() {
 		elGoogleApi.onerror = () => reject('Google script failed to load')
 	})
 }
+
+function getSetMap(map) {
+	if (!map) return gMap
+	gMap = map
+	return gMap
+}
+function showLocation(pos) {
+	console.log('pos:', pos)
+	const lat = pos.coords.latitude
+	const lng = pos.coords.longitude
+
+	const position = {lat, lng}
+	gMap.setCenter(position)
+}
+
+// const myCoordsObj = {
+//   lat: coordsData.coord.lat,
+//   lon: coordsData.coord.lon,
+//   name: coordsData.sys.country
+//     ? `${coordsData.name}, ${coordsData.sys.country}`
+//     : coordsData.name
+// };
