@@ -1,7 +1,61 @@
-body{
+body {
     background-color: #212b36;
+    font-family: sans-serif;
+    color: aliceblue;
 }
 
-*{
+* {
     box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+
+
+    background-color: yellow;
+}
+
+h1 {
+    color: aliceblue;
+    letter-spacing: 1px;
+}
+
+.map-actions {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.layout {
+    max-width: 85%;
+    margin: auto;
+}
+
+main {
+    display: grid;
+    height: 600px;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 100px 250px 250px;
+
+    grid-column-gap: 2%;
+}
+
+#map {
+    grid-row: span 2;
+    margin-top: 20px;
+}
+
+.locations {
+    background-color: blue;
+}
+
+.curr-loc {
+    background-color: red;
+    grid-column: span 2;
+}
+
+.weather {
+    background-color: pink;
 }
