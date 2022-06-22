@@ -2,19 +2,22 @@
 @import './componenets/main.css';
 
 body {
-    background-color: #212b36;
-    font-family: sans-serif;
-    color: aliceblue;
+	background-color: #212b36;
+	font-family: sans-serif;
+	color: aliceblue;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 .layout {
-    max-width: 85%;
-    margin: auto;
+	max-width: 85%;
+	margin: auto;
 }
 
+.i {
+	font-size: 1.25rem;
+}

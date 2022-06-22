@@ -16,6 +16,8 @@ function onInit() {
 	mapService
 		.initMap()
 		.then(() => {
+			// getWether()
+			onGetWether()
 			console.log('Map is ready')
 		})
 		.catch(() => console.log('Error: cannot init map'))
@@ -42,6 +44,7 @@ function onAddMarker(ev) {
 function onGetUserPos() {
 	getPosition()
 		.then((pos) => {
+			console.log('pos:', pos)
 			mapService.showLocation(pos)
 			document.querySelector(
 				'.user-pos'
@@ -92,7 +95,7 @@ function displayPos() {
 
 	let pos = {coords: {longitude: currPos.lon, latitude: currPos.lat}}
 	mapService.showLocation(pos)
-	onGetWether()
+	getWether()
 }
 
 function getCoords(address) {
@@ -107,11 +110,22 @@ function getCoords(address) {
 }
 
 function onGetWether() {
-	getWether()
+	getPosition()
+		.then((pos) => {
+			console.log('pos:', pos)
+			let x = locService.getSetCurrentPos(pos)
+			let lan = x.coords.latitude
+			let lng = x.coords.longitude
+			getWether({lan, lng})
+		})
+		.catch((err) => {
+			console.log('err!!!', err)
+		})
 }
 
-function getWether() {
-	let pos = locService.getWetherCoords()
+function getWether(pos) {
+	if (!pos) pos = locService.getWetherCoords()
+	console.log('pos:', pos)
 
 	const API = 'f811e21a69624c25599c2622bf4d98fe'
 	var url = `https://api.openweathermap.org/data/2.5/weather?lat=${pos.lan}&lon=${pos.lng}&appid=${API}`
@@ -122,15 +136,6 @@ function getWether() {
 
 		.catch((err) => console.log(err))
 }
-function renderWether(res) {
-	console.log('res:', res)
-}
-// feels_like: 29.841
-// humidity: 83
-// pressure: 1006
-// temp: 29.773000000000003
-// temp_max: 29.816000000000003
-// temp_min: 29.716
 
 function renderWether(res) {
 	document.querySelector('.weather').innerHTML = `
@@ -150,7 +155,7 @@ function renderWether(res) {
 <tr>
 <td>Min temp</td><td>${res.temp_min}°</td></tr>
 <tr>
-<td>Humidity</td><td>${res.humidity}%</td></tr>
+<td>Humidity</td><td>${res.humidity}</td></tr>
 <tr>
 <td>Pressure</td><td>${res.pressure}</td></tr>
 </tbody>

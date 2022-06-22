@@ -1,73 +1,102 @@
 #map {
-    grid-row: span 2;
-    margin-top: 20px;
-    border-radius: 30px;
+	grid-row: span 2;
+	margin-top: 20px;
+	border-radius: 30px;
 }
 
 main {
-    display: grid;
-    height: 600px;
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 100px 250px 250px;
+	display: grid;
+	height: 600px;
+	grid-template-columns: 2fr 3fr;
+	grid-template-rows: 100px 250px 250px;
 
-    grid-column-gap: 2%;
+	grid-column-gap: 2%;
 }
 
 .locations-header {
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.3rem;
-    padding: 0 .5rem;
-    border-bottom: 1px solid white;
-    margin-bottom: 10px;
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	font-size: 1.3rem;
+	padding: 0 0.5rem;
+	border-bottom: 1px solid white;
+	margin-bottom: 10px;
 }
 
 .locations {
-    margin: 2px;
-    border-radius: 10px;
-    padding: 10px 0;
-    box-shadow: -12px 4px 36px 1px rgba(255, 255, 255, 0.66);
-    overflow: auto;
+	margin: 2px;
+	border-radius: 10px;
+	padding: 10px 0;
+	box-shadow: -12px 4px 36px 1px rgba(255, 255, 255, 0.66);
+	overflow: auto;
 }
 
 .curr-loc {
-    background-color: rgba(240, 248, 255, 0.247);
-    grid-column: span 2;
-    font-size: 2rem;
-    padding: 1.5rem;
-    margin: 10px;
+	background-color: rgba(240, 248, 255, 0.247);
+	grid-column: span 2;
+	font-size: 2rem;
+	padding: 1.5rem;
+	margin: 10px;
 
-    display: flex;
-    align-self: center;
+	display: flex;
+	align-self: center;
 }
 
 .weather {
-    background-color: pink;
+	background-color: linear-gradient(to bottom, #6b7079 0%, #4d545e 66%, #3a414c 100%);
 }
 
 .location {
-    margin: 2px;
-     border-radius: 5px;
-    text-align: center;
-    margin-bottom: 5px;
-    color: #212b36;
-    background-color: rgba(255, 255, 255, 0.66);
-
+	margin: 2px;
+	border-radius: 5px;
+	text-align: center;
+	margin-bottom: 5px;
+	color: #212b36;
+	background-color: rgba(255, 255, 255, 0.66);
 }
 
 .buttons {
-    display: flex;
-    gap: 1px;
-   
+	display: flex;
+	gap: 1px;
 }
 
-
 .go-btn {
-    flex-grow: 1;
-    height: 1.5rem;
-    
+	flex-grow: 1;
+	height: 1.5rem;
 }
 
 .delete-btn {
-    background-color: rgb(226, 23, 23);
+	background-color: rgb(226, 23, 23);
+}
+
+table.unstyledTable {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #68676d;
+	width: 100%;
+	height: 200%;
+	text-align: center;
+}
+table.unstyledTable td,
+table.unstyledTable th {
+	padding: 9px 3px;
+}
+table.unstyledTable tbody td {
+	font-size: 17px;
+	color: #c0d9ea;
+}
+table.unstyledTable thead {
+	background: #3a414c;
+	background: -moz-linear-gradient(top, #6b7079 0%, #4d545e 66%, #3a414c 100%);
+	background: -webkit-linear-gradient(top, #6b7079 0%, #4d545e 66%, #3a414c 100%);
+	background: linear-gradient(to bottom, #6b7079 0%, #4d545e 66%, #3a414c 100%);
+	border-bottom: 2px solid #444444;
+}
+table.unstyledTable thead th {
+	font-size: 24px;
+	font-weight: bold;
+	color: #c9c9c9;
+	text-align: center;
+	border-left: 0px solid #3a414c;
+}
+table.unstyledTable thead th:first-child {
+	border-left: none;
 }
