@@ -5,7 +5,10 @@ export const mapService = {
 	getSetMap,
 	showLocation,
 }
+// import {wetherService} from './services/weather.services.js'
+
 import {storageService} from './storage.service.js'
+import {locService} from './loc.service.js'
 
 var gMap
 
@@ -56,18 +59,10 @@ function getSetMap(map) {
 	return gMap
 }
 function showLocation(pos) {
-	console.log('pos:', pos)
-	const lat = pos.coords.latitude
-	const lng = pos.coords.longitude
+	const lat = pos.coords.latitude * 1
+	const lng = pos.coords.longitude * 1
 
 	const position = {lat, lng}
+	locService.getSetCurrentPos(position)
 	gMap.setCenter(position)
 }
-
-// const myCoordsObj = {
-//   lat: coordsData.coord.lat,
-//   lon: coordsData.coord.lon,
-//   name: coordsData.sys.country
-//     ? `${coordsData.name}, ${coordsData.sys.country}`
-//     : coordsData.name
-// };

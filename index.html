@@ -8,35 +8,34 @@
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 
-<body>
-    <header class="layout">
-        <h1 class="logo">TravelTip</h1>
-        <div class="map-actions">
-            <div class="search-loc">
-                <input type="text" placeholder="Enter Location">
-                <button class="go">GO</button>
-            </div>
-            <button onclick="onGetUserPos()">My location</button>
-            <button onclick="onCopyLoc()">Copy Location</button>
-        </div>
-    </header>
+	<body>
+		<header class="layout">
+			<h1 class="logo">TravelTip</h1>
+			<div class="map-actions">
+				<div class="search-loc">
+					<input
+						onchange="OnGetLocation(this.value)"
+						type="text"
+						placeholder="Enter Location"
+					/>
+					<button class="go">GO</button>
+				</div>
+				<button onclick="onGetUserPos()">My location</button>
+				<button onclick="onCopyLoc()">Copy Location</button>
+			</div>
+		</header>
 
 		<main class="layout">
 			<p class="curr-loc">You are at: <span class="user-pos"></span></p>
 
-        <div class="locations">
-         
-        </div>
+			<div class="locations"></div>
 
-        <div id="map" style="width: 98%; height: 480px;"></div>
-        <div class="weather">weather</div>
-    </main>
+			<div id="map" style="width: 98%; height: 480px"></div>
+			<div class="weather">weather</div>
+		</main>
 
-    <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
-    <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
-
-    <script type="module" src="js/app.controller.js"></script>
-</body>
+		<button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
+		<button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
 
 		<script type="module" src="js/app.controller.js"></script>
 	</body>
