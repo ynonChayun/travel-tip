@@ -1,11 +1,11 @@
-import {locService} from './services/loc.service.js'
-import {mapService} from './services/map.service.js'
+import { locService } from './services/loc.service.js'
+import { mapService } from './services/map.service.js'
 
 window.onload = onInit
 window.onAddMarker = onAddMarker
 window.onPanTo = onPanTo
-window.onGetLocs = onGetLocs
 window.onGetUserPos = onGetUserPos
+window.onCopyLoc = onCopyLoc
 
 function onInit() {
 	mapService
@@ -14,6 +14,7 @@ function onInit() {
 			console.log('Map is ready')
 		})
 		.catch(() => console.log('Error: cannot init map'))
+	renderLocs()
 }
 
 // This function provides a Promise API to the callback-based-api of getCurrentPosition
@@ -25,17 +26,10 @@ function getPosition() {
 }
 
 function onAddMarker(ev) {
-	if (!ev) mapService.addMarker({lat: 32.0749831, lng: 34.9120554})
+	if (!ev) mapService.addMarker({ lat: 32.0749831, lng: 34.9120554 })
 	var lat = ev.latLng.lat()
 	var lng = ev.latLng.lng()
-	mapService.addMarker({lat: lat, lng: lng})
-}
-
-function onGetLocs() {
-	locService.getLocs().then((locs) => {
-		console.log('Locations:', locs)
-		document.querySelector('.locs').innerText = JSON.stringify(locs)
-	})
+	mapService.addMarker({ lat: lat, lng: lng })
 }
 
 function onGetUserPos() {
@@ -50,7 +44,18 @@ function onGetUserPos() {
 			console.log('err!!!', err)
 		})
 }
+
 function onPanTo() {
 	console.log('Panning the Map')
 	mapService.panTo(35.6895, 139.6917)
 }
+
+function onCopyLoc() {
+	const urlWithLoc = `https://ynonchayun.github.io/travel-tip/index.html?lat=${3.14}&lng=${1.13}`
+	navigator.clipboard.writeText(urlWithLoc);
+}
+
+// function renderLocs() {
+// 	const locs = getLocs()
+// 	const strHTML = getLocs.map(() =>)
+// }

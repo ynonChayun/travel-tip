@@ -18,21 +18,36 @@
                 <button>GO</button>
             </div>
             <button>My location</button>
-            <button>Copy Location</button>
+            <button onclick="onCopyLoc()">Copy Location</button>
         </div>
     </header>
 
     <main class="layout">
         <p class="curr-loc">You are at: <span class="user-pos"></span></p>
-        <p class="locations">Locations: <span class="locs"></span></p>
+
+        <div class="locations">
+            <div class="location">
+                    <div class="loc-title"> central park</div>
+                    <div class="loc-details">📍 3.14 , 6.32 🕛 23:11</div>
+                    <div class="buttons">
+                        <button class="delete-btn">🗑️</button>
+                        <button class="go-btn">GO</button>
+                    </div>
+            </div>
+            <div class="location">
+                    <div class="loc-title"> central park</div>
+                    <div class="loc-details">📍 3.14 , 6.32 🕛 23:11</div>
+            </div>
+        
+        </div>
+
         <div onclick="onAddMarker(event)" id="map" style="width: 98%; height: 480px;"></div>
         <div class="weather">weather</div>
     </main>
+
     <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
     <button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button>
-    <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
     <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
-
 
     <script type="module" src="js/app.controller.js"></script>
 </body>

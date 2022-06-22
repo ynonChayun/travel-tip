@@ -1,3 +1,5 @@
+@import './componenets/header.css';
+
 body {
     background-color: #212b36;
     font-family: sans-serif;
@@ -6,19 +8,6 @@ body {
 
 * {
     box-sizing: border-box;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-
-
-    background-color: yellow;
-}
-
-h1 {
-    color: aliceblue;
-    letter-spacing: 1px;
 }
 
 .map-actions {
@@ -58,4 +47,39 @@ main {
 
 .weather {
     background-color: pink;
+}
+
+.location {
+    box-shadow: 0 6px 6px black;
+    margin-bottom: 5px;
+}
+
+.loc-title {
+    color: #212b36;
+    text-align: center;
+    background-color: rgb(206, 198, 198);
+
+}
+
+.loc-details {
+    text-align: center;
+    color: #212b36;
+    background-color: rgb(206, 198, 198);
+}
+
+.buttons {
+    display: flex;
+    gap: 1px;
+}
+
+
+.go-btn {
+    flex-grow: 1;
+    height: 1.5rem;    
+}
+.delete-btn{
+    background-color: rgb(226, 23, 23);
+}
+.go-btn{
+    background-color: rgb(92, 177, 66);
 }

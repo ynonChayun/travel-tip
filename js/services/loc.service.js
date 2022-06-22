@@ -1,8 +1,8 @@
 export const locService = {
 	getLocs,
 }
-
 import {storageService} from './storage.service.js'
+
 
 const locs = [
 	{name: 'Greatplace', lat: 32.047104, lng: 34.832384},
@@ -10,9 +10,5 @@ const locs = [
 ]
 
 function getLocs() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve(locs)
-		}, 2000)
-	})
+	return locs
 }
